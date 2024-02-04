@@ -3,9 +3,13 @@ const app = express();
 const port = 9000;
 
 app.use(express.static("public"));
+app.set("view engine", "ejs");
+app.set("views", "./public/views");
 
 app.get("/", (req, res) => {
-  res.sendFile("index.html");
+  res.render("index.ejs", {
+    message: "Hello Anurag!!",
+  });
 });
 
 app.listen(port);
